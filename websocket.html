@@ -16,9 +16,9 @@
       function connect() {
         let timerSendPing;
         let timerPong;
-        disconnect(); // при ошибке разрываем соединение
+        disconnect(); // If there is an error, we close the connection
         var wsUri = (window.location.protocol=='https:'&&'wss://'||'ws://')+window.location.host+window.location.pathname;
-        conn = new WebSocket(wsUri); //открываем соединение
+        conn = new WebSocket(wsUri); //open the connection
         log('Connecting...');
         conn.onopen = function() {
           log('Connected.');
@@ -27,7 +27,7 @@
             timerSendPing = setInterval(() => conn.send("ping"), 5000);
           } catch (err) {
             clearInterval(timerSendPing);
-            alert('Потеряно соединение с сервером!');
+            alert('Lost connection to the server!');
           };
         };
         conn.onmessage = function(e) {
@@ -35,7 +35,7 @@
             log('Received: ' + e.data);
           };
           clearTimeout(timerPong);
-          timerPong = setTimeout(() => alert('Потеря соединения!'), 10000);
+          timerPong = setTimeout(() => alert('Lost connection!'), 10000);
         };
         conn.onclose = function() {
           clearInterval(timerSendPing);

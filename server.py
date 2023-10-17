@@ -1,9 +1,9 @@
 import os
+import aiohttp
 from aiohttp import web
 import asyncio
 from asyncio import Queue
 import time
-import aiohttp
 
 WS_FILE = os.path.join(os.path.dirname(__file__), "websocket.html")
 
@@ -55,5 +55,5 @@ def init():
     app.on_shutdown.append(on_shutdown)
     return app
 
-
-web.run_app(init())
+if __name__ == "__main__":
+    web.run_app(init(), host='0.0.0.0', port=8081)

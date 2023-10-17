@@ -1,14 +1,10 @@
-Напишите сервер на aiohttp, который:
+Write a server on aiohttp that:
 
-        Позволяет клиентам подключиться через веб-сокеты на сообщения (новости).
-        Может получать новые новости методом POST/news (предположим, что этот запрос нам отправляет другой сервис) и рассылать всем подключившимся клиентам.
-        Позволяет периодически проверять соединение между клиентом и сервером при помощи запросов, которые ничего не меняют.
+         Allows clients to connect via websockets to messages (news).
+         It can receive new news using the POST/news method (assuming that this request is sent to us by another service) and send it to all connected clients.
+         Allows you to periodically check the connection between the client and the server using queries that do not change anything.
 
-Сделайте страницу, которая может отображать полученные от этого сервиса сообщения.
+Make a page that can display messages received from this service.
 
-Проект доступен по адресам:
-
-        http://localhost:8080//news
-        http://127.0.0.1:8080/news
-
+The project is available at - http://127.0.0.1:8081/news
 
